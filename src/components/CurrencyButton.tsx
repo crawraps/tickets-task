@@ -1,22 +1,9 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
-import { Currency as ICurrency, setCurrency } from '../app/reducer'
-
-export default function Currency(): JSX.Element {
-  return (
-    <div className='flex flex-col bg-white rounded-md p-4'>
-      <h1>Валюта</h1>
-      <div className='flex'>
-        <CurrencyButton type='rub' />
-        <CurrencyButton type='usd' />
-        <CurrencyButton type='eur' />
-      </div>
-    </div>
-  )
-}
+import { Currency, setCurrency } from '../app/reducer'
 
 export interface ButtonProps {
-  type: ICurrency
+  type: Currency
 }
 
 export function CurrencyButton({ type }: ButtonProps): JSX.Element {
