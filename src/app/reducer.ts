@@ -29,7 +29,7 @@ export default function reducer(
       const transfers = [...state.transfers]
       transfers[action.payload] = !transfers[action.payload]
       return { ...state, transfers: transfers }
-    case 'setAllTransfers':
+    case 'setAllTransfersFalse':
       return { ...state, transfers: Array(state.transfers.length).fill(false) }
     default:
       return state
@@ -45,6 +45,6 @@ export function setCurrency(currency: Currency): AnyAction {
 export function toggleTransfer(number: number): AnyAction {
   return { type: 'toggleTransfer', payload: number }
 }
-export function setAllTransfers(): AnyAction {
-  return { type: 'setAllTransfer' }
+export function setAllTransfersFalse(): AnyAction {
+  return { type: 'setAllTransfersFalse' }
 }

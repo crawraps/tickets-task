@@ -1,6 +1,7 @@
 import React from 'react'
 import { CurrencyButton } from './components/CurrencyButton'
 import InfoBlock from './components/InfoBlock'
+import TransferCheckbox from './components/TransferCheckbox'
 
 export default function App(): JSX.Element {
   return (
@@ -10,6 +11,13 @@ export default function App(): JSX.Element {
           <CurrencyButton type='rub' />
           <CurrencyButton type='usd' />
           <CurrencyButton type='eur' />
+        </InfoBlock>
+        <InfoBlock heading='Количество пересадок' column>
+          <TransferCheckbox transfersNum='all' />
+          <TransferCheckbox transfersNum={0} />
+          <TransferCheckbox transfersNum={1} />
+          <TransferCheckbox transfersNum={2} />
+          <TransferCheckbox transfersNum={3} />
         </InfoBlock>
       </div>
     </div>
