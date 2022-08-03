@@ -1,7 +1,5 @@
 import React from 'react'
 
-function App(): JSX.Element {
+export default function App(): JSX.Element {
   return <></>
 }
-
-export default App
