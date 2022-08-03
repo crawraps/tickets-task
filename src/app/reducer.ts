@@ -2,7 +2,7 @@ import { AnyAction } from '@reduxjs/toolkit'
 
 export type SortType = 'expensiveFirst' | 'expensiveLast'
 export type Currency = 'rub' | 'usd' | 'eur'
-export type Transfers = 'all' | 1 | 2 | 3
+export type Transfers = boolean[]
 
 interface State {
   sorting: SortType
@@ -13,17 +13,26 @@ interface State {
 const defaultState: State = {
   sorting: 'expensiveLast',
   displayingCurrency: 'usd',
-  transfers: 'all',
+  transfers: [false, false, false, false],
 }
 
-export default function reducer(state = defaultState, action: AnyAction) {
+export default function reducer(
+  state = defaultState,
+  action: AnyAction
+): State {
   switch (action.type) {
     case 'setSortType':
-      return { ...state, sorting: action.payload } as State
+      return { ...state, sorting: action.payload }
     case 'setCurrency':
-      return { ...state, displayingCurrency: action.payload } as State
-    case 'setTransfers':
-      return { ...state, tranfers: action.payload } as State
+      return { ...state, displayingCurrency: action.payload }
+    case 'toggleTransfer':
+      const transfers = [...state.transfers]
+      transfers[action.payload] = !transfers[action.payload]
+      return { ...state, transfers: transfers }
+    case 'setAllTransfers':
+      return { ...state, transfers: Array(state.transfers.length).fill(false) }
+    default:
+      return state
   }
 }
 
@@ -33,6 +42,9 @@ export function setSortType(type: SortType): AnyAction {
 export function setCurrency(currency: Currency): AnyAction {
   return { type: 'setCurrency', payload: currency }
 }
-export function setTransfers(transfers: Transfers): AnyAction {
-  return { type: 'setTransfers', payload: transfers }
+export function toggleTransfer(number: number): AnyAction {
+  return { type: 'toggleTransfer', payload: number }
+}
+export function setAllTransfers(): AnyAction {
+  return { type: 'setAllTransfer' }
 }
