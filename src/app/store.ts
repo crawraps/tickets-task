@@ -3,7 +3,7 @@ import reducer from './reducer'
 
 export const store = configureStore({
   reducer: {
-    counter: reducer,
+    reducer,
   },
 })
 
