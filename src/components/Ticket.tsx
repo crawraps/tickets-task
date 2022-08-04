@@ -37,19 +37,19 @@ export default function Ticket({ ticket, buy }: Props): JSX.Element {
   )
 
   return (
-    <div className='flex bg-white shadow-md hover:shadow-lg m-2 transition-shadow rounded-md'>
-      <div className='flex flex-col p-4 w-1/4'>
-        <div className='image w-full h-16 bg-blue-300 rounded-sm mb-2 flex items-center justify-center'>
+    <div className='flex bg-white shadow-md hover:shadow-lg m-2 transition-shadow rounded-md flex-col sm:flex-row'>
+      <div className='flex p-4 w-full sm:w-1/4 flex-row sm:flex-col'>
+        <div className='image w-full h-16 bg-blue-300 rounded-sm sm:mb-2 mr-1 sm:mr-0 flex items-center justify-center'>
           picture
         </div>
         <button
           onClick={buy}
-          className='w-full py-2 px-4 bg-orange-200 rounded-sm hover:bg-orange-300 transition-colors'
+          className='w-full py-2 px-4 bg-orange-200 rounded-sm hover:bg-orange-300 ml-1 sm:ml-0 transition-colors'
         >{`Купить за ${
           ticket.price[currency]
         } ${currency.toUpperCase()}`}</button>
       </div>
-      <div className='flex p-4 w-3/4 items-center justify-between'>
+      <div className='flex p-4 sm:w-3/4 items-center justify-between w-full'>
         <Dest dest={ticket.start} pos='start' />
         <Arrow
           textAbove={`${ticket.transfers} пересадок`}
