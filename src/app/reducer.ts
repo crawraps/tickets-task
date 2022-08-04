@@ -1,4 +1,6 @@
 import { AnyAction } from '@reduxjs/toolkit'
+import { Ticket as ITicket } from '../components/Ticket'
+import Ticket from '../tickets.json'
 
 export type SortType = 'expensiveFirst' | 'expensiveLast'
 export type Currency = 'rub' | 'usd' | 'eur'
@@ -8,12 +10,14 @@ interface State {
   sorting: SortType
   displayingCurrency: Currency
   transfers: Transfers
+  tickets: ITicket[]
 }
 
 const defaultState: State = {
   sorting: 'expensiveLast',
   displayingCurrency: 'usd',
   transfers: [false, false, false, false],
+  tickets: Ticket.tickets,
 }
 
 export default function reducer(
@@ -29,8 +33,11 @@ export default function reducer(
       const transfers = [...state.transfers]
       transfers[action.payload] = !transfers[action.payload]
       return { ...state, transfers: transfers }
-    case 'setAllTransfersFalse':
-      return { ...state, transfers: Array(state.transfers.length).fill(false) }
+    case 'setAllTransfers':
+      return {
+        ...state,
+        transfers: Array(state.transfers.length).fill(action.payload),
+      }
     default:
       return state
   }
@@ -46,5 +53,5 @@ export function toggleTransfer(number: number): AnyAction {
   return { type: 'toggleTransfer', payload: number }
 }
 export function setAllTransfersFalse(): AnyAction {
-  return { type: 'setAllTransfersFalse' }
+  return { type: 'setAllTransfers', payload: false }
 }

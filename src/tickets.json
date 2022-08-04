@@ -1,0 +1,44 @@
+{
+  "tickets": [
+    {
+      "price": {
+        "rub": 21032,
+        "usd": 342,
+        "eur": 330
+      },
+      "start": { "date": "9 oct 2021 09:25:00 GMT", "city": "WO, Владивосток" },
+      "end": { "date": "10 oct 2021 11:45:00 GMT", "city": "TLV, Тель-Авив" },
+      "transfers": 1
+    },
+    {
+      "price": {
+        "rub": 22245,
+        "usd": 362,
+        "eur": 349
+      },
+      "start": { "date": "9 oct 2021 10:35:00 GMT", "city": "WO, Владивосток" },
+      "end": { "date": "10 oct 2021 12:34:00 GMT", "city": "TLV, Тель-Авив" },
+      "transfers": 1
+    },
+    {
+      "price": {
+        "rub": 23056,
+        "usd": 376,
+        "eur": 362
+      },
+      "start": { "date": "9 oct 2021 09:42:00 GMT", "city": "WO, Владивосток" },
+      "end": { "date": "9 oct 2021 12:02:00 GMT", "city": "TLV, Тель-Авив" },
+      "transfers": 2
+    },
+    {
+      "price": {
+        "rub": 23994,
+        "usd": 391,
+        "eur": 377
+      },
+      "start": { "date": "9 oct 2021 11:15:00 GMT", "city": "WO, Владивосток" },
+      "end": { "date": "9 oct 2021 13:00:00 GMT", "city": "TLV, Тель-Авив" },
+      "transfers": 3
+    }
+  ]
+}
