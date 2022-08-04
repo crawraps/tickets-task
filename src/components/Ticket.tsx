@@ -50,12 +50,12 @@ export default function Ticket({ ticket, buy }: Props): JSX.Element {
         } ${currency.toUpperCase()}`}</button>
       </div>
       <div className='flex p-4 w-3/4 items-center justify-between'>
-        <Dest dest={ticket.start} />
+        <Dest dest={ticket.start} pos='start' />
         <Arrow
           textAbove={`${ticket.transfers} пересадок`}
           textBelow={`${difference.toString()} часов`}
         />
-        <Dest dest={ticket.end} />
+        <Dest dest={ticket.end} pos='end' />
       </div>
     </div>
   )
